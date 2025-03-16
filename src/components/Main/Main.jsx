@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import ExpenseSummary from '../ExpenseSummary/ExpenseSummary';
 import BackButton from '../common/BackButton';
 import './Main.css';
+import API_BASE_URL from '../../config/api.js';
 
 const Main = () => {
   const navigate = useNavigate();
@@ -31,7 +32,7 @@ const Main = () => {
 
   const fetchExpenses = async () => {
     try {
-      const response = await fetch(`/api/expenses/${user._id}`);
+      const response = await fetch(`${API_BASE_URL}/api/expenses/${user._id}`);
       const data = await response.json();
       if (response.ok) {
         console.log('Fetched expenses:', data); // Debug log
@@ -60,7 +61,7 @@ const Main = () => {
     }
 
     try {
-      const response = await fetch('/api/expenses', {
+      const response = await fetch(`${API_BASE_URL}/api/expenses`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -92,7 +93,7 @@ const Main = () => {
     
     setIsDeleting(true);
     try {
-      const response = await fetch(`/api/expenses/${expenseId}`, {
+      const response = await fetch(`${API_BASE_URL}/api/expenses/${expenseId}`, {
         method: 'DELETE',
       });
 
