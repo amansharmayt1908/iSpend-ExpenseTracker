@@ -1,11 +1,15 @@
 import mongoose from 'mongoose';
+const MONGODB_URI = process.env.MONGODB_URI || 'your_local_mongodb_uri';
 
 const connectDB = async () => {
   try {
-    const conn = await mongoose.connect('mongodb+srv://amansharmayt19:nvrQpvCAPAWSEh9C@scripterx.7nhap.mongodb.net/iSpend?retryWrites=true&w=majority', {
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
-    });
+    const conn = await mongoose.connect(
+      MONGODB_URI,
+      {
+        useNewUrlParser: true,
+        useUnifiedTopology: true,
+      }
+    );
     console.log(`MongoDB Connected: ✅`);
   } catch (error) {
     console.error(`Error: ${error.message}`);
