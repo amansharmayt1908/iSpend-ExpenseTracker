@@ -1,9 +1,9 @@
 import express from 'express';
 import mongoose from 'mongoose';
 import dotenv from 'dotenv';
-import connectDB from '../config/db.js';
-import User from '../models/userModel.js';
-import Expense from '../models/expenseModel.js';
+import connectDB from './config/db.js';
+import User from './models/userModel.js';
+import Expense from './models/expenseModel.js';
 import bcrypt from 'bcryptjs';
 
 dotenv.config();
